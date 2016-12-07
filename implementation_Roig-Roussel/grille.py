@@ -4,7 +4,7 @@ class Grille :
 
 # Structure de données choisie
 # taille: int           taille de la grille
-# positions[[]]   tableau des positions de la grille
+# positions[][]   tableau des positions de la grille
 
         def __init__(self, tailleGrille):
         #Initialise une grille, avec comme paramètre la taille de celle-ci.
@@ -66,13 +66,13 @@ class Grille :
                         res = True
                 return res
 
-        def estBateau self, x, y):
+        def estBateau(self, x, y):
         #Données: Grille et coordonnées (x,y)
         #Pré-conditions: x:int, y:int
         #Resultat: Renvoie True s'il y a un bateau aux coordonnées (x,y) indiquées, renvoie False sinon
         #Post-conditions: bool
                 res = False
-                if(x <= self.taille and y <= self.taille and x >= 0 and y >= 0):
+                if(self.estDansGrille(x,y)):
                         if(self.positions[x][y] != 0):
                                 res = True
                 return res
@@ -83,7 +83,7 @@ class Grille :
         #Resultat: Renvoie True si la position indiquée indiquée par (x,y) est dans la grille et non-occupée par un bateau,
         # renvoie False sinon
         #Post-conditions: bool
-                return estBateau(x,y) and estDansGrille(x,y)
+                return not(estBateau(x,y)) and estDansGrille(x,y)
 
         def estValide(self, numBat, x, y):
         #Données: Grille, numéro du bateau, et coordonnées (x,y)
@@ -131,7 +131,7 @@ class Grille :
                 while(res and i < self.taille):
                         j=0
                         while(res and j < self.taille):
-                            res = estBateau(i,j)
+                            res = not(estBateau(i,j))
                             j+=1
                         i+=1
                 return res
