@@ -6,11 +6,11 @@ class Grille :
 # taille: int           taille de la grille
 # positions[[]]   tableau des positions de la grille
 
-        def __init__(self, tailleGrille):      
+        def __init__(self, tailleGrille):
         #Initialise une grille, avec comme paramètre la taille de celle-ci.
         #Renvoie erreur si grille n'a pas été initialisée
                 self.taille = tailleGrille
-                self.positions = [[0 for i in range(tailleGrille)] for y in range(tailleGrille)] 
+                self.positions = [[0 for i in range(tailleGrille)] for y in range(tailleGrille)]
 
         def placerPositionBateau(self, numBat, xBat, yBat):
         #Données: Grille, numéro du bateau à placer, et coordonnées indiquant où on veut le placer
@@ -22,8 +22,8 @@ class Grille :
                         self.positions[xBat][yBat] = numBat
                 except IndexError:
                         print("Erreur placement bateau : cordonnées hors grille.")
-                        
-        def getBateau (self, xBat, yBat):        
+
+        def getBateau (self, xBat, yBat):
         #Données: Grille et coordonnées étudiées
         #Pré-conditions: xBat:int, yBat:int
         #Resultat: Renvoie le numéro du bateau correspondant aux coordonnées xBat, yBat, ou renvoie 0 s'il n'y pas de bateau
@@ -40,7 +40,7 @@ class Grille :
         #Resultat: Supprime la position indiquée par les coordonnées (xBat,yBat) et renvoie la grille modifiée
         #Post-conditions:
                 self.positions[xBat][yBat] = 0
-                
+
 
         def envue(self, xTir, yTir):
         #Données: Grille et coordonnées(xTir,yTir)
@@ -53,8 +53,8 @@ class Grille :
                                 res = True
                 for i in range (0, self.taille):
                         if(self.positions[i][yTir] != 0):
-                                res = True    
-                return res                        
+                                res = True
+                return res
 
         def estDansGrille(self, x, y):
         #Données: Grille et coordonnées (x,y)
@@ -100,24 +100,24 @@ class Grille :
                                         res = True
                                 elif(getBateau(x+1,y+1) != numBat and getBateau(x+1,y-1) != numBat):
                                         res = True
-                                        
+
                         if(getBateau(x-1,y) == numBat):
                                 if(getBateau(x-2,y) == numBat):
                                         res = True
                                 elif(getBateau(x-1,y+1) != numBat and getBateau(x-1,y-1) != numBat):
                                         res = True
-                                        
+
                         if(getBateau(x,y+1) == numBat):
                                 if(getBateau(x,y+2) == numBat):
                                         res = True
                                 elif(getBateau(x+1,y+1) != numBat and getBateau(x-1,y+1) != numBat):
                                         res = True
-                                            
+
                         if(getBateau(x,y-1) == numBat):
                                 if(getBateau(x,y-2) == numBat):
                                         res = True
                                 elif(getBateau(x+1,y-1) != numBat and getBateau(x+1,y-1) != numBat):
-                                        res = True                                
+                                        res = True
                 return res
 
         def estVide(self):
@@ -125,13 +125,15 @@ class Grille :
         #Pré-conditions: ---
         #Resultat: Renvoie True si la grille ne comporte plus aucun bateau, renvoie False sinon
         #Post-conditions: bool
-                res = False
+                res = True
                 i = 0
                 j = 0
-                while(!res or i < self.taille or j < self.taille):
-                        res = res or estBateau(i,j)
-                        i++
-                        j++
+                while(res and i < self.taille):
+                        j=0
+                        while(res and j < self.taille):
+                            res = estBateau(i,j)
+                            j+=1
+                        i+=1
                 return res
 
         def tirer(self, xTir, yTir):
