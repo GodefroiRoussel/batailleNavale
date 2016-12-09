@@ -142,12 +142,3 @@ class Grille :
         #Pré-conditions: xTir:int, yTir:int
         #Resultat: Renvoie le résultat du tir (en vue, touché ou coulé)
         #Post-conditions: resultatTir:string
-
-grille = Grille(20)
-grille.placerPositionBateau(2,5,5)
-for i in range(0,20):
-        print(grille.positions[i])
-
-print(grille.estDansGrille(5,-5))
-
-input("fin programme")
