@@ -19,7 +19,6 @@ class Flotte:
 		#Resultat: Ajoute un bateau et sa taille à la flotte. Renvoie erreur si le bateau n'a pas été ajouté
 		#Post-conditions: Flotte
 		self.tailles.append(tailleBat)
-		return self
 		#TO DO : gestion erreur et ajouter le bateau?
 
 
@@ -36,8 +35,6 @@ class Flotte:
 		#Resultat: Décrémente la taille du bateau placé en paramètre et renvoie la flotte modifiée
 		#Post-conditions: Flotte
 		self.tailles[numBat]-=1
-		return self
-
 
 	def coule(self, numBat): 
 		#Données: Flotte et numéro du bateau
