@@ -4,7 +4,7 @@ class Grille :
 
 # Structure de données choisie
 # taille: int           taille de la grille
-# positions[][]   tableau des positions de la grille
+# positions[][]         tableau des positions de la grille
 
         def __init__(self, tailleGrille):
         #Initialise une grille, avec comme paramètre la taille de celle-ci.
@@ -94,7 +94,7 @@ class Grille :
         #Post-conditions: bool
                 res = False
                 if(verificationCoordonnees(x,y)):
-                        # getBateau() gère les erreurs d'index
+                        # getBateau() gère déjà les erreurs d'index
                         if(getBateau(x+1,y) == numBat):
                                 if(getBateau(x+2,y) == numBat):
                                         res = True
