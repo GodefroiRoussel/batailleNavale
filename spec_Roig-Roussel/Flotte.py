@@ -7,6 +7,8 @@ Classe Flotte
 ---------------------------------
 """
 
+from Bateau import *
+
 class Flotte:
 
   def __init__(self): return

@@ -6,6 +6,7 @@ Classe Bateau
 @author Clément ROIG
 ---------------------------------
 """
+from Position import *
 
 class Bateau:
 
