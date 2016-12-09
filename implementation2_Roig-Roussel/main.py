@@ -166,7 +166,7 @@ def main():
     			print("Entrez les cordonnées de la cible : ");
     			a=input();
     			b=input();
-    		result=Joueur2.grille().tirer(a,b);
+    		result=Joueur2.grille().tirer(Joueur2.flotte(),a,b);
     		print(result);
 
 
@@ -178,11 +178,11 @@ def main():
 
     		a=-1;
     		b=-1;
-    		while (Joueur2.grille().estDansGrille(a,b)==False):
+    		while (Joueur1.grille().estDansGrille(a,b)==False):
     			print("Entrez les cordonnées de la cible : ");
     			a=input();
     			b=input();
-    		result=Joueur2.grille().tirer(a,b);
+    		result=Joueur1.grille().tirer(Joueur1.flotte(),a,b);
     		print(result);
 
     		tourDeJeu=2; #Changement de tour

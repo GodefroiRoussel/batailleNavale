@@ -4,6 +4,12 @@ from tests_unitaires import *
 
 def main():
 
+	GrilleTest=Grille(4)
+    GrilleTest.placerPositionBateau(0,0,1);
+    GrilleTest.placerPositionBateau(1,2,0);
+    GrilleTest.placerPositionBateau(1,2,1);
+    GrilleTest.placerPositionBateau(1,2,2);
+	
     if not (test_creation_flotte()):
         print('Erreur fonction creation flotte');
 

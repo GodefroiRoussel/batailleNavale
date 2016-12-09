@@ -2,12 +2,12 @@
 # -*- coding: utf8 -*-
 
 class Flotte:
-
+#Structure de données
+#tailles: [int]
 
 	def __init__(self):
 		#renvoie une nouvelle flotte vide
         #renvoie erreur si la flotte n'a pas été correctement créée
-
         #Explications : La flotte est un type qui enumère toutes les tailles de bateaux mais ne permet pas de les localiser
 		self.tailles = []
 
@@ -31,6 +31,7 @@ class Flotte:
 		#Resultat: Décrémente la taille du bateau placé en paramètre et renvoie la flotte modifiée
 		#Post-conditions: Flotte
 		self.tailles[numBat]-=1
+
 
 	def coule(self, numBat)
 		#Données: Flotte et numéro du bateau
