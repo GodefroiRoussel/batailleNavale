@@ -141,6 +141,21 @@ class Grille :
 	#Pré-conditions: xTir:int, yTir:int avec estDansGrille(xBat) et estDansGrille(yBat)
 	#Resultat: Renvoie le résultat du tir (à l'eau, en vue, touché ou coulé) et modifie la flotte et la grille en cas de tir reussi
 	#Post-conditions: resultatTir:string
+		res = ""
+		if estBateau(xTir,yTir) {
+			# Touché ou coulé ?
+			
+		}
+		else {
+			# A l'eau ou en vue ?
+			if(envue(xTir,yTir){
+				res = "En vue"
+			} 
+			else {
+				res = "A l'eau"
+			}
+		}
+		return res
 
 
 
