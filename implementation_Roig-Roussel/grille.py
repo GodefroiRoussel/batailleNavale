@@ -18,21 +18,21 @@ class Grille :
         #Resultat: Ajoute le bateau de numéro numBat à la position (xBat,yBat) sur la grille du joueur et renvoie la grille.
         #Renvoie erreur si la position n'est pas ajoutée !
         #Post-conditions:
-                try:
-                        self.positions[xBat][yBat] = numBat
-                except IndexError:
-                        print("Erreur placement bateau : cordonnées hors grille.")
+			try:
+					self.positions[xBat][yBat] = numBat
+			except IndexError:
+					print("Erreur placement bateau : cordonnées hors grille.")
 
         def getBateau (self, xBat, yBat):
         #Données: Grille et coordonnées étudiées
         #Pré-conditions: xBat:int, yBat:int
         #Resultat: Renvoie le numéro du bateau correspondant aux coordonnées xBat, yBat, ou renvoie 0 s'il n'y pas de bateau
         #Post-conditions: numBat:int
-                try:
-                        numBat = self.positions[xBat][yBat]
-                except IndexError:
-                        numBat = 0
-                return numBat
+			try:
+					numBat = self.positions[xBat][yBat]
+			except IndexError:
+					numBat = 0
+			return numBat
 
         def supprimerPosition(self, xBat, yBat):
         #Données: Grille et cordonnées (xBat,yBat)
