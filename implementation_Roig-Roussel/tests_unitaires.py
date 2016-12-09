@@ -1,9 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf8 -*-
-from joueur import *;
-from grille import *;
-from flotte import *;
-from main import *;
+from joueur import *
+from grille import *
+from flotte import *
+from main import *
 
 #===============================================================
 #--------------------------FLOTTE-------------------------------
@@ -131,6 +131,7 @@ def test_grille():
 
 def test_placerPositionBateau():
     try:
+        GrilleTest=Grille(4)
         GrilleTest.placerPositionBateau(0,0,0);
         return True;
     except:
@@ -139,6 +140,7 @@ def test_placerPositionBateau():
 
 def test_placerPositionBateau_trop_eloigne():
     try:
+        GrilleTest=Grille(4)
         GrilleTest.placerPositionBateau(0,0,2);
         return False;
     except:
@@ -148,11 +150,6 @@ def test_placerPositionBateau_trop_eloigne():
 
 
 #-------------------------GetBateau-------------------
-
-GrilleTest.placerPositionBateau(0,0,1);
-GrilleTest.placerPositionBateau(1,2,0);
-GrilleTest.placerPositionBateau(1,2,1);
-GrilleTest.placerPositionBateau(1,2,2);
 
 #Grille[[0,-1,1,-1],[0,-1,1,-1],[-1,-1,1,-1]]
 
