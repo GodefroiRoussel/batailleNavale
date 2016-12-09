@@ -9,7 +9,7 @@ class Flotte:
 
 	def __init__(self): 
 		#renvoie une nouvelle flotte vide
-        #renvoie erreur si la flotte n'a pas été correctement remplacée
+		#renvoie erreur si la flotte n'a pas été correctement remplacée
 		self.tailles = []
 		#TO DO : gestion erreur
 

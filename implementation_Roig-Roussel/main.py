@@ -21,13 +21,11 @@ def main():
     Joueur1.Grille=Grille(tailleGrille); # On attribut une grille au joueur 1
     Joueur1.Flotte=Flotte(); #On ne definit pas de taille car le joueur pourra ajouter autant de bateaux qu'il veux
 
-
     print("Entrez le nom du Joueur 2 : ")
     NomJoueur2=input(); #On récupère le nom du second joueur
     Joueur2=Joueur(NomJoueur2); #On crée le second joueur
     Joueur2.Grille=Grille(tailleGrille);
     Joueur2.Flotte=Flotte();
-
 
     print("La partie va opposer "+NomJoueur1+" à "+NomJoueur2+" !");
 
