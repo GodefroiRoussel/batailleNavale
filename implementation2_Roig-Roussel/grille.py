@@ -148,7 +148,7 @@ class Grille :
 		}
 		else {
 			# A l'eau ou en vue ?
-			if(envue(xTir,yTir){
+			if(envue(xTir,yTir)){
 				res = "En vue"
 			} 
 			else {
