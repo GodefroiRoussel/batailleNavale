@@ -64,18 +64,14 @@ def main():
         #Cette boucle while vérifie que les coordonées sont valides
         while ((Joueur1.grille().verificationCoordonnees(x,y)==False) and (Joueur1.grille().noSpace(Joueur1.flotte().taille(i),i,x,y)==False)):
             print("Entrez la "+str(t+1)+" position du bateau"+str(i)+" :")
-            print("x = ")
-            x=input()
-
-            print("y = ")
-            y=input()
-
+            x=input("x = ")
+            y=input("y = ")
             if (Joueur1.grille().noSpace(Joueur1.flotte().taille(i),i,x,y)==False):
-                print("Pas d'espace libre pour ajouter toutes les coordonnées de ce bateau, resaisie !")
+                print("Pas d'espace libre pour ajouter toutes les coordonnées de ce bateau, resaisie !");
             elif (Joueur1.grille().verificationCoordonnees(x,y)==False):
-                print("Coordonnées invalides (bateau sur la même position ou coordonnées hors grille")
+                print("Coordonnées invalides (bateau sur la même position ou coordonnées hors grille");
 
-        #Les premières coordonnées sont valides, on les insert
+        #Les premières coordonnées sont valides, on les insère
         Joueur1.grille().placerPositionBateau(i,x,y)
 
         #Après avoir placé les premières coordonnées, on ajoute les suivantes si tailleBat>1
@@ -86,7 +82,6 @@ def main():
                 print("Entrez la "+str(t+1)+" position du bateau"+str(i)+" :")
                 print("x = ")
                 x=input()
-
                 print("y = ")
                 y=input()
 
