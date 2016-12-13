@@ -129,10 +129,10 @@ class Grille :
 			# Vérification horizontale
 			cHorizontalPos = 0
 			cHorizontalNeg = 0
-			while(self.verificationCoordonnees(x+cHorizontalPos,y)):
+			while(self.verificationCoordonnees(x+1+cHorizontalPos,y)):
 				cHorizontalPos += 1
 			# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens positif horizontal)
-			while(self.verificationCoordonnees(x-cHorizontalNeg,y)):
+			while(self.verificationCoordonnees(x-1-cHorizontalNeg,y)):
 				cHorizontalNeg += 1
 			# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens négatif horizontal)
 			placeHorizontal = ((cHorizontalNeg + cHorizontalPos + 1) >= taille)
@@ -140,10 +140,10 @@ class Grille :
 			# Vérification verticale
 			cVerticalPos = 0
 			cVerticalNeg = 0
-			while(self.verificationCoordonnees(x+cVerticalPos,y)):
+			while(self.verificationCoordonnees(x+1+cVerticalPos,y)):
 				cVerticalPos += 1
 			# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens positif vertical)
-			while(self.verificationCoordonnees(x+cVerticalNeg,y)):
+			while(self.verificationCoordonnees(x-1-cVerticalNeg,y)):
 				cVerticalNeg += 1
 			# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens négatif vertical)
 			placeVertical = ((cVerticalNeg + cVerticalPos +1) >= taille)
