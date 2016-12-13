@@ -33,7 +33,7 @@ class Joueur:
 	#Post-conditions: type Grille
 		return self.grille
 
-	def flotte(self):
+	def getFlotte(self):
 	#Données: Joueur
 	#Pré-conditions: ---
 	#Resultat: renvoie la Flotte du joueur
