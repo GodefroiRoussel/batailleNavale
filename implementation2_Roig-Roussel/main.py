@@ -16,13 +16,13 @@ def main():
 
     #Saisie du nom des deux joueurs par l'utilisateur
     print("Entrez le nom du Joueur 1 : ")
-    NomJoueur1=input() #On récupère le nom du premier joueur
+    NomJoueur1=raw_input() #On récupère le nom du premier joueur
     Joueur1=Joueur(NomJoueur1,tailleGrille) #On crée le premier joueur
 
 
 
     print("Entrez le nom du Joueur 2 : ")
-    NomJoueur2=input() #On récupère le nom du second joueur
+    NomJoueur2=raw_input() #On récupère le nom du second joueur
     Joueur2=Joueur(NomJoueur2,tailleGrille) #On crée le second joueur
 
 
@@ -42,8 +42,8 @@ def main():
             print("Saisir la taille du bateau "+(j)+" :")
             taille=input()
         #On ajoute le bateau aux flottes des deux joueurs afin de mémoriser leurs tailles.
-    	Joueur1.flotte().ajouterBateau(taille)
-    	Joueur2.flotte().ajouterBateau(taille)
+        Joueur1.flotte().ajouterBateau(taille)
+        Joueur2.flotte().ajouterBateau(taille)
 
     #Les bateaux sont initialisés mais pas placés
     #On place les bateaux
@@ -56,11 +56,11 @@ def main():
      #Le joueur 1 place ses différents
 
     for i in range(0,nbat):
-    	t=0
+        t=0
         #On initialise x et y à des coordonnées invalides afin que les tests renvoient faux si l'utilisateur ne rentre pas de coordonées
-    	x=-1
-    	y=-1
-    	#On place la première coordonnée du bateau i
+        x=-1
+        y=-1
+        #On place la première coordonnée du bateau i
         #Cette boucle while vérifie que les coordonées sont valides
         while ((Joueur1.grille().verificationCoordonnees(x,y)==False) and (Joueur1.grille().noSpace(Joueur1.flotte().taille(i),i,x,y)==False)):
             print("Entrez la "+(t+1)+" position du bateau"+(i)+" :")
@@ -79,23 +79,23 @@ def main():
         Joueur1.grille().placerPositionBateau(i,x,y)
 
         #Après avoir placé les premières coordonnées, on ajoute les suivantes si tailleBat>1
-    	for t in range(1,Joueur1.flotte().taille(i)):
-    		x=-1
-    		y=-1
-    		while ((Joueur1.grille().estValide(i,x,y)==False) and (Joueur1.grille().noSpace(Joueur1.flotte().taille(i),i,x,y)==False)):
-    			print("Entrez la "+(t+1)+" position du bateau"+i+" :")
-    			print("x = ")
-    			x=input()
+        for t in range(1,Joueur1.flotte().taille(i)):
+            x=-1
+            y=-1
+            while ((Joueur1.grille().estValide(i,x,y)==False) and (Joueur1.grille().noSpace(Joueur1.flotte().taille(i),i,x,y)==False)):
+                print("Entrez la "+(t+1)+" position du bateau"+i+" :")
+                print("x = ")
+                x=input()
 
-    			print("y = ")
-    			y=input()
+                print("y = ")
+                y=input()
 
                 if (Joueur1.grille().noSpace(Joueur1.flotte().taille(i),i,x,y)==False):
                     print("Pas d'espace libre pour ajouter toutes les coordonnées de ce bateau, resaisie !")
                 elif (Joueur1.grille().estValide(i,x,y)==False):
                     print("Coordonnées invalides (bateau sur la même position ou coordonnées hors grille")
 
-    		Joueur1.grille().placerPositionBateau(i,x,y)
+            Joueur1.grille().placerPositionBateau(i,x,y)
 
     print("--------------------------------------------------------------------------------------------")
     print(" ")
@@ -105,11 +105,11 @@ def main():
      #Le joueur 1 place ses différents
 
     for i in range(0,nbat):
-    	t=0
+        t=0
         #On initialise x et y à des coordonnées invalides afin que les tests renvoient faux si l'utilisateur ne rentre pas de coordonées
-    	x=-1
-    	y=-1
-    	#On place la première coordonnée du bateau i
+        x=-1
+        y=-1
+        #On place la première coordonnée du bateau i
         #Cette boucle while vérifie que les coordonées sont valides
         while ((Joueur2.grille().verificationCoordonnees(x,y)==False) and (Joueur2.grille().noSpace(Joueur2.flotte().taille(i),i,x,y)==False)):
             print("Entrez la "+(t+1)+" position du bateau"+(i)+" :")
@@ -128,23 +128,23 @@ def main():
         Joueur1.grille().placerPositionBateau(i,x,y)
 
         #Après avoir placé les premières coordonnées, on ajoute les suivantes si tailleBat>1
-    	for t in range(1,Joueur2.flotte().taille(i)):
-    		x=-1
-    		y=-1
-    		while ((Joueur2.grille().estValide(i,x,y)==False) and (Joueur2.grille().noSpace(Joueur2.flotte().taille(i),i,x,y)==False)):
-    			print("Entrez la "+(t+1)+" position du bateau"+i+" :")
-    			print("x = ")
-    			x=input()
+        for t in range(1,Joueur2.flotte().taille(i)):
+            x=-1
+            y=-1
+            while ((Joueur2.grille().estValide(i,x,y)==False) and (Joueur2.grille().noSpace(Joueur2.flotte().taille(i),i,x,y)==False)):
+                print("Entrez la "+(t+1)+" position du bateau"+i+" :")
+                print("x = ")
+                x=input()
 
-    			print("y = ")
-    			y=input()
+                print("y = ")
+                y=input()
 
                 if (Joueur2.grille().noSpace(Joueur2.flotte().taille(i),i,x,y)==False):
                     print("Pas d'espace libre pour ajouter toutes les coordonnées de ce bateau, resaisie !")
                 elif (Joueur2.grille().estValide(i,x,y)==False):
                     print("Coordonnées invalides (bateau sur la même position ou coordonnées hors grille")
 
-    		Joueur2.grille().placerPositionBateau(i,x,y)
+            Joueur2.grille().placerPositionBateau(i,x,y)
 
 
     print("==================== Début du jeu ========================")
@@ -154,42 +154,44 @@ def main():
 
     #Notre fonction estVide permet de verifier avant chaque nouveau tour si la grille d'un des joueurs est vide
     while ((Joueur1.grille().estVide()==False) or (Joueur2.grille().estVide()==False)):
-    	if (tourDeJeu==1):
-    		print(Joueur1.name()+ " à toi de tirer !")
-    		#Joueur 1 tire
-    		a=-1
-    		b=-1
+        if (tourDeJeu==1):
+            print(Joueur1.name()+ " à toi de tirer !")
+            #Joueur 1 tire
+            a=-1
+            b=-1
             #On verifie que les coordonées sont bien comprises dans la grille
-    		while (Joueur2.grille().estDansGrille(a,b)==False):
-    			print("Entrez les cordonnées de la cible : ")
-    			a=input()
-    			b=input()
-    		result=Joueur2.grille().tirer(Joueur2.flotte(),a,b)
-    		print(result)
+            while (Joueur2.grille().estDansGrille(a,b)==False):
+                print("Entrez les cordonnées de la cible : ")
+                a=input()
+                b=input()
+            result=Joueur2.grille().tirer(Joueur2.flotte(),a,b)
+            print(result)
 
-    		tourDeJeu=2 #Changement de tour
+            tourDeJeu=2 #Changement de tour
 
-    	else:
-    		print(Joueur2.name()+ " à toi de tirer !")
-    		#Joueur 2 tire
+        else:
+            print(Joueur2.name()+ " à toi de tirer !")
+            #Joueur 2 tire
 
-    		a=-1
-    		b=-1
-    		while (Joueur1.grille().estDansGrille(a,b)==False):
-    			print("Entrez les cordonnées de la cible : ")
-    			a=input()
-    			b=input()
-    		result=Joueur1.grille().tirer(Joueur1.flotte(),a,b)
-    		print(result)
+            a=-1
+            b=-1
+            while (Joueur1.grille().estDansGrille(a,b)==False):
+                print("Entrez les cordonnées de la cible : ")
+                a=input()
+                b=input()
+            result=Joueur1.grille().tirer(Joueur1.flotte(),a,b)
+            print(result)
 
-    		tourDeJeu=2 #Changement de tour
+            tourDeJeu=2 #Changement de tour
 
 
     print("==================== Fin du jeu ========================")
 
     if(Joueur1.grille().estVide()):
-    	print(Joueur2.name()+" a gagné")
+        print(Joueur2.name()+" a gagné")
     else:
-    	print(Joueur1.name()+ "a gagné")
+        print(Joueur1.name()+ "a gagné")
 
     #Fin de Partie
+
+main()
