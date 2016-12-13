@@ -17,14 +17,14 @@ class Flotte:
 		#Resultat: Ajoute un bateau et sa taille à la flotte. Renvoie erreur si le bateau n'a pas été ajouté
 		#Post-conditions: Flotte
 		self.tailles.append(tailleBat)
-		
+
 	def taille(self, numBat):
 		#Données: Flotte et numéro du bateau
 		#Pré-conditions: numBat:int
 		#Resultat: Renvoie la taille du bateau placé en paramètre
 		#Post-conditions: tailleBat:int
 		return self.tailles[numBat]
-		
+
 	def touche(self, numBat):
 		#Données: Flotte et numéro du bateau
 		#Pré-conditions: numBat:int
@@ -32,8 +32,7 @@ class Flotte:
 		#Post-conditions: Flotte
 		self.tailles[numBat]-=1
 
-
-	def coule(self, numBat)
+	def coule(self, numBat):
 		#Données: Flotte et numéro du bateau
 		#Pré-conditions: numBat:int
 		#Resultat: Renvoie True si la taille du bateau est égale à 0, renvoie False sinon
