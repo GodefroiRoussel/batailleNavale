@@ -39,11 +39,11 @@ def main():
     for j in range(0,nbBat):
         taille=-1
         while (taille<1):
-            print("Saisir la taille du bateau "+(j)+" :")
+            print("Saisir la taille du bateau "+str(j)+" :")
             taille=input()
         #On ajoute le bateau aux flottes des deux joueurs afin de mémoriser leurs tailles.
-        Joueur1.flotte().ajouterBateau(taille)
-        Joueur2.flotte().ajouterBateau(taille)
+        Joueur1.getFlotte().ajouterBateau(taille)
+        Joueur2.getFlotte().ajouterBateau(taille)
 
     #Les bateaux sont initialisés mais pas placés
     #On place les bateaux
@@ -63,7 +63,7 @@ def main():
         #On place la première coordonnée du bateau i
         #Cette boucle while vérifie que les coordonées sont valides
         while ((Joueur1.grille().verificationCoordonnees(x,y)==False) and (Joueur1.grille().noSpace(Joueur1.flotte().taille(i),i,x,y)==False)):
-            print("Entrez la "+(t+1)+" position du bateau"+(i)+" :")
+            print("Entrez la "+str(t+1)+" position du bateau"+str(i)+" :")
             print("x = ")
             x=input()
 
@@ -83,7 +83,7 @@ def main():
             x=-1
             y=-1
             while ((Joueur1.grille().estValide(i,x,y)==False) and (Joueur1.grille().noSpace(Joueur1.flotte().taille(i),i,x,y)==False)):
-                print("Entrez la "+(t+1)+" position du bateau"+i+" :")
+                print("Entrez la "+str(t+1)+" position du bateau"+str(i)+" :")
                 print("x = ")
                 x=input()
 
@@ -112,7 +112,7 @@ def main():
         #On place la première coordonnée du bateau i
         #Cette boucle while vérifie que les coordonées sont valides
         while ((Joueur2.grille().verificationCoordonnees(x,y)==False) and (Joueur2.grille().noSpace(Joueur2.flotte().taille(i),i,x,y)==False)):
-            print("Entrez la "+(t+1)+" position du bateau"+(i)+" :")
+            print("Entrez la "+str(t+1)+" position du bateau"+str(i)+" :")
             print("x = ")
             x=input()
 
@@ -132,7 +132,7 @@ def main():
             x=-1
             y=-1
             while ((Joueur2.grille().estValide(i,x,y)==False) and (Joueur2.grille().noSpace(Joueur2.flotte().taille(i),i,x,y)==False)):
-                print("Entrez la "+(t+1)+" position du bateau"+i+" :")
+                print("Entrez la "+str(t+1)+" position du bateau"+str(i)+" :")
                 print("x = ")
                 x=input()
 
