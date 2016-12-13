@@ -31,7 +31,7 @@ class Grille :
 		except IndexError:
 				numBat = 0
 		return numBat
-		
+
 	def supprimerPosition(self, xBat, yBat):
 	#Données: Grille et cordonnées (xBat,yBat)
 	#Pré-conditions: xBat:int, yBat:int , on suppose vérfifiée le fait que la postion contient un bateau et avec estDansGrille(xBat) et estDansGrille(yBat)
@@ -118,8 +118,8 @@ class Grille :
 	#Données: Grille,taille du bateau, et coordonnées (x,y)
 	#Pré-conditions: numBat:int, x:int, y:int avec estDansGrille(xBat) et estDansGrille(yBat)
 	#Resultat: Renvoie True si après vérification, il y a suffisament de place pour inserer le bateau à l'horizontale ou à la verticale après analyse de la direction du bateau si il y a déjà des cases ajoutées pour le numBat donné en paramètre
-	#Post-conditions: bool
-
+	#Post-conditions: bool        
+        
 	def estVide(self):
 	#Données: Grille
 	#Pré-conditions: ---
@@ -142,20 +142,20 @@ class Grille :
 	#Resultat: Renvoie le résultat du tir (à l'eau, en vue, touché ou coulé) et modifie la flotte et la grille en cas de tir reussi
 	#Post-conditions: resultatTir:string
 		res = ""
-		if estBateau(xTir,yTir) {
+		if estBateau(xTir,yTir):
 			# Touché ou coulé ?
-			
-		}
-		else {
+			bateauTouche = getBateau(xTir,yTir)
+			supprimerPosition(xTir,yTir)
+			i=0
+			# si une des cases alentours correspond au numéro du bateau, alors il n'est pas coulé
+			if(getBateau(xTir+1,yTir) == bateauTouche or getBateau(xTir-1,yTir) == bateauTouche or getBateau(xTir,yTir+1) == bateauTouche or getBateau(xTir,yTir-1) == bateauTouche):
+				res = "Touché !"
+			else:
+				res = "Coulé !"
+		else:
 			# A l'eau ou en vue ?
-			if(envue(xTir,yTir)){
+			if(envue(xTir,yTir)):
 				res = "En vue"
-			} 
-			else {
+			else:
 				res = "A l'eau"
-			}
-		}
 		return res
-
-
-
