@@ -3,8 +3,6 @@
 from grille import *
 from flotte import *
 
-
-
 class Joueur:
 	# STRUCTURE DE DONNEES
 	# nom : String
@@ -33,9 +31,9 @@ class Joueur:
 	#Post-conditions: type Grille
 		return self.grille
 
-	def getFlotte(self):
+    def getFlotte(self):
 	#Données: Joueur
 	#Pré-conditions: ---
 	#Resultat: renvoie la Flotte du joueur
 	#Post-conditions: type Flotte
-		return self.flotte
+        return self.flotte
