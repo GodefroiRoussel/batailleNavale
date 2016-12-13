@@ -156,7 +156,6 @@ class Grille :
 			# 2ème ou + position à placer
 			else:
 				# on cherche la case juxtaposée
-				case = 0
 				if(self.getBateau(x+1,y) == numBat or self.getBateau(x-1,y) == numBat):
 					# case à droite ou à gauche (x)
 					res = placeHorizontal
