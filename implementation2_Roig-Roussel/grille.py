@@ -79,7 +79,7 @@ class Grille :
 	#Pré-conditions: x:int, y:int avec estDansGrille(xBat) et estDansGrille(yBat)
 	#Resultat: Renvoie True si la position indiquée indiquée par (x,y) est dans la grille et non-occupée par un bateau, renvoie False sinon
 	#Post-conditions: bool
-		return not(estBateau(x,y)) and estDansGrille(x,y)
+		return not(self.estBateau(x,y)) and self.estDansGrille(x,y)
 
 	def estValide(self, numBat, x, y):
 	#Données: Grille, numéro du bateau, et coordonnées (x,y)
@@ -87,30 +87,30 @@ class Grille :
 	#Resultat: Renvoie True si verificationCoordonnees est true et si la position indiquée par (x,y) est juxtaposée à un bateau de même numéro et que toutes les autres position de ce bateau sont sur la même ligne ou la même colonne, renvoie False sinon
 	#Post-conditions: bool
 		res = False
-		if(verificationCoordonnees(x,y)):
+		if(self.verificationCoordonnees(x,y)):
 				# getBateau() gère déjà les erreurs d'index
-				if(getBateau(x+1,y) == numBat):
-						if(getBateau(x+2,y) == numBat):
+				if(self.getBateau(x+1,y) == numBat):
+						if(self.getBateau(x+2,y) == numBat):
 								res = True
-						elif(getBateau(x+1,y+1) != numBat and getBateau(x+1,y-1) != numBat):
-								res = True
-
-				if(getBateau(x-1,y) == numBat):
-						if(getBateau(x-2,y) == numBat):
-								res = True
-						elif(getBateau(x-1,y+1) != numBat and getBateau(x-1,y-1) != numBat):
+						elif(self.getBateau(x+1,y+1) != numBat and self.getBateau(x+1,y-1) != numBat):
 								res = True
 
-				if(getBateau(x,y+1) == numBat):
-						if(getBateau(x,y+2) == numBat):
+				if(self.getBateau(x-1,y) == numBat):
+						if(self.getBateau(x-2,y) == numBat):
 								res = True
-						elif(getBateau(x+1,y+1) != numBat and getBateau(x-1,y+1) != numBat):
+						elif(self.getBateau(x-1,y+1) != numBat and self.getBateau(x-1,y-1) != numBat):
 								res = True
 
-				if(getBateau(x,y-1) == numBat):
-						if(getBateau(x,y-2) == numBat):
+				if(self.getBateau(x,y+1) == numBat):
+						if(self.getBateau(x,y+2) == numBat):
 								res = True
-						elif(getBateau(x+1,y-1) != numBat and getBateau(x+1,y-1) != numBat):
+						elif(self.getBateau(x+1,y+1) != numBat and self.getBateau(x-1,y+1) != numBat):
+								res = True
+
+				if(self.getBateau(x,y-1) == numBat):
+						if(self.getBateau(x,y-2) == numBat):
+								res = True
+						elif(self.getBateau(x+1,y-1) != numBat and self.getBateau(x+1,y-1) != numBat):
 								res = True
 		return res
 
@@ -124,15 +124,15 @@ class Grille :
 		placeVertical = False
 		placeHorizontal = False
 
-		if(verificationCoordonnees(x,y)):
+		if(self.verificationCoordonnees(x,y)):
 
 			# Vérification horizontale
 			cHorizontalPos = 0
 			cHorizontalNeg = 0
-			while(verificationCoordonnees(x+cHorizontalPos,y)):
+			while(self.verificationCoordonnees(x+cHorizontalPos,y)):
 				cHorizontalPos += 1
 			# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens positif horizontal)
-			while(verificationCoordonnees(x-cHorizontalNeg,y)):
+			while(self.verificationCoordonnees(x-cHorizontalNeg,y)):
 				cHorizontalNeg += 1
 			# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens négatif horizontal)
 			placeHorizontal = ((cHorizontalNeg + cHorizontalPos + 1) >= taille)
@@ -140,28 +140,28 @@ class Grille :
 			# Vérification verticale
 			cVerticalPos = 0
 			cVerticalNeg = 0
-			while(verificationCoordonnees(x+cVerticalPos,y)):
+			while(self.verificationCoordonnees(x+cVerticalPos,y)):
 				cVerticalPos += 1
 			# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens positif vertical)
-			while(verificationCoordonnees(x+cVerticalNeg,y)):
+			while(self.verificationCoordonnees(x+cVerticalNeg,y)):
 				cVerticalNeg += 1
 			# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens négatif vertical)
 			placeVertical = ((cVerticalNeg + cVerticalPos +1) >= taille)
 
 
 			# 1ère position à placer
-			if(not estValide(numBat,x,y)):
+			if(not self.estValide(numBat,x,y)):
 				res = placeVertical or placeHorizontal
 
 			# 2ème ou + position à placer
 			else:
 				# on cherche la case juxtaposée
 				case = 0
-				if(getBateau(x+1,y) == numBat or getBateau(x-1,y) == numBat):
+				if(self.getBateau(x+1,y) == numBat or self.getBateau(x-1,y) == numBat):
 					# case à droite ou à gauche (x)
 					res = placeHorizontal
 
-				if(getBateau(x,y-1) == numBat or getBateau(x,y+1) == numBat):
+				if(self.getBateau(x,y-1) == numBat or self.getBateau(x,y+1) == numBat):
 					# case en haut ou en bas (y)
 					res = placeVertical
 
