@@ -117,9 +117,45 @@ class Grille :
 	def noSpace(self,taille,numBat,x,y):
 	#Données: Grille,taille du bateau, et coordonnées (x,y)
 	#Pré-conditions: numBat:int, x:int, y:int avec estDansGrille(xBat) et estDansGrille(yBat)
-	#Resultat: Renvoie True si après vérification, il y a suffisament de place pour inserer le bateau à l'horizontale ou à la verticale après analyse de la direction du bateau si il y a déjà des cases ajoutées pour le numBat donné en paramètre
-	#Post-conditions: bool        
-        
+	#Resultat: Renvoie True si après vérification, il y a suffisament de place pour inserer le bateau à l'horizontale ou à la verticale
+	#après analyse de la direction du bateau si il y a déjà des cases ajoutées pour le numBat donné en paramètre
+	#Post-conditions: bool
+		res = True
+		if(verificationCoordonnees(x,y)):
+			# 1ère position à placer
+			if(not estValide(numBat,x,y)):
+
+				# Vérification horizontale
+				cHorizontalPos = 0
+				cHorizontalNeg = 0
+				placeHorizontal = True
+				while(verificationCoordonnees(x+cHorizontalPos,y)):
+					cHorizontalPos += 1
+				# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens positif horizontal)
+				while(verificationCoordonnees(x-cHorizontalNeg,y)):
+					cHorizontalNeg += 1
+				# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens positif horizontal)
+				placeHorizontal = (cHorizontalNeg + cHorizontalPos + 1 >= taille)
+
+				# Vérification verticale
+				cVerticalPos = 0
+				cVerticalNeg = 0
+				placeVertical = True
+				while(verificationCoordonnees(x+cVerticalPos,y)):
+					cVerticalPos += 1
+				# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens positif horizontal)
+				while(verificationCoordonnees(x+cVerticalNeg,y)):
+					cVerticalNeg += 1
+				# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens positif horizontal)
+				placeVertical = (cVerticalNeg + cVerticalPos +1 >= taille)
+
+			# 2ème et + position à placer
+			else:
+		else:
+			placeVertical = False
+			placeHorizontal = False
+		return placeVertical or placeHorizontal
+
 	def estVide(self):
 	#Données: Grille
 	#Pré-conditions: ---
