@@ -11,27 +11,25 @@ class Grille :
 		self.taille = tailleGrille
 		self.positions = [[0 for j in range(0, tailleGrille+1)] for i in range(0, tailleGrille+1)]
 
-		print(self.positions)
-
 	def placerPositionBateau(self, numBat, xBat, yBat):
 	#Données: Grille, numéro du bateau à placer, et coordonnées indiquant où on veut le placer
 	#Pré-conditions: numBat:int, xBat:int, yBat:int avec estDansGrille(xBat) et estDansGrille(yBat)
 	#Resultat: Ajoute le bateau de numéro numBat à la position (xBat,yBat) sur la grille du joueur et renvoie la grille. Renvoie erreur si la position n'est pas ajoutée !
 	#Post-conditions:
 		try:
-				self.positions[xBat][yBat] = numBat
+			self.positions[xBat][yBat] = numBat
 		except IndexError:
-				print("Erreur placement bateau : cordonnées hors grille.")
+			print("Erreur placement bateau : cordonnées hors grille.")
 
-	def getBateau (self, xBat, yBat):
+	def getBateau(self, xBat, yBat):
 	#Données: Grille et coordonnées étudiées
 	#Pré-conditions: xBat:int, yBat:int avec estDansGrille(xBat) et estDansGrille(yBat)
 	#Resultat: Renvoie le numéro du bateau correspondant aux coordonnées xBat, yBat, ou renvoie -1 s'il n'y pas de bateau
 	#Post-conditions: numBat:int
 		try:
-				numBat = self.positions[xBat][yBat]
+			numBat = self.positions[xBat][yBat]
 		except IndexError:
-				numBat = 0
+			numBat = 0
 		return numBat
 
 	def supprimerPosition(self, xBat, yBat):
@@ -131,24 +129,24 @@ class Grille :
 			# Vérification horizontale
 			cHorizontalPos = 0
 			cHorizontalNeg = 0
-			while(self.verificationCoordonnees(x+1+cHorizontalPos,y) or getBateau(x+1+cHorizontalPos,y) == numBat):
+			while(self.verificationCoordonnees(x+1+cHorizontalPos,y) or self.getBateau(x+1+cHorizontalPos,y) == numBat):
 				cHorizontalPos += 1
 			# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens positif horizontal)
-			while(self.verificationCoordonnees(x-1-cHorizontalNeg,y) or getBateau(x-1-cHorizontalNeg,y) == numBat):
+			while(self.verificationCoordonnees(x-1-cHorizontalNeg,y) or self.getBateau(x-1-cHorizontalNeg,y) == numBat):
 				cHorizontalNeg += 1
 			# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens négatif horizontal)
-			placeHorizontal = ((cHorizontalNeg + cHorizontalPos + 1) >= taille)
+			placeHorizontal = ((cHorizontalNeg + cHorizontalPos + 1) >= self.taille)
 
 			# Vérification verticale
 			cVerticalPos = 0
 			cVerticalNeg = 0
-			while(self.verificationCoordonnees(x,y+cVerticalPos+1) or getBateau(x,y+cVerticalPos+1) == numBat):
+			while(self.verificationCoordonnees(x,y+cVerticalPos+1) or self.getBateau(x,y+cVerticalPos+1) == numBat):
 				cVerticalPos += 1
 			# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens positif vertical)
-			while(self.verificationCoordonnees(x,y-cVerticalNeg-1) or getBateau(x,y-cVerticalNeg-1) == numBat):
+			while(self.verificationCoordonnees(x,y-cVerticalNeg-1) or self.getBateau(x,y-cVerticalNeg-1) == numBat):
 				cVerticalNeg += 1
 			# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens négatif vertical)
-			placeVertical = ((cVerticalNeg + cVerticalPos + 1) >= taille)
+			placeVertical = ((cVerticalNeg + cVerticalPos + 1) >= self.taille)
 
 
 			# 1ère position à placer
