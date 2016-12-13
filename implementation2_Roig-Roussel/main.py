@@ -55,7 +55,7 @@ def main():
 
      #Le joueur 1 place ses différents
 
-    for i in range(0,nbat):
+    for i in range(0,nbBat):
         t=0
         #On initialise x et y à des coordonnées invalides afin que les tests renvoient faux si l'utilisateur ne rentre pas de coordonées
         x=-1

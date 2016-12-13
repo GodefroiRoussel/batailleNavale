@@ -24,12 +24,12 @@ class Joueur:
 	#Post-conditions: String
         return self.nom_j
 
-	def grille(self):
+    def grille(self):
 	#Données: Joueur
 	#Pré-conditions: ---
 	#Resultat: renvoie la Grille du joueur
 	#Post-conditions: type Grille
-		return self.grille_j
+        return self.grille_j
 
     def flotte(self):
 	#Données: Joueur
