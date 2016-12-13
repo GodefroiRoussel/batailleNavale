@@ -18,13 +18,13 @@ class Joueur:
 		self.nom = nomJoueur
 		self.grille = Grille(tailleGrille)
 		self.flotte = Flotte()
-		
-	def name(self):
+
+    def name(self):
 	#Données: Joueur
 	#Pré-conditions: ---
 	#Resultat: renvoie Nom du joueur
 	#Post-conditions: String
-		return self.nom
+        return self.nom
 
 	def grille(self):
 	#Données: Joueur

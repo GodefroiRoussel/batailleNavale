@@ -112,8 +112,11 @@ def test_name():
 #---------------------------GRILLE------------------------------
 #Grille
 
-
-
+GrilleTest = Grille(20)
+GrilleTest.placerPositionBateau(0,0,1)
+GrilleTest.placerPositionBateau(1,2,0)
+GrilleTest.placerPositionBateau(1,2,1)
+GrilleTest.placerPositionBateau(1,2,2)
 
 
 #---------------------------Création Grille-------------------------
@@ -148,11 +151,6 @@ def test_placerPositionBateau_trop_eloigne():
 
 
 #-------------------------GetBateau-------------------
-
-GrilleTest.placerPositionBateau(0,0,1);
-GrilleTest.placerPositionBateau(1,2,0);
-GrilleTest.placerPositionBateau(1,2,1);
-GrilleTest.placerPositionBateau(1,2,2);
 
 #Grille[[0,-1,1,-1],[0,-1,1,-1],[-1,-1,1,-1]]
 
