@@ -13,27 +13,27 @@ class Joueur:
 	#Initialise un joueur avec son nom passé en paramètre
 	#Initialise sa grille et sa flotte
 	#Renvoie erreur si le joueur n'a pas été créé
-		self.nom = nomJoueur
-		self.grille = Grille(tailleGrille)
-		self.flotte = Flotte()
+		self.nom_j = nomJoueur
+		self.grille_j = Grille(tailleGrille)
+		self.flotte_j = Flotte()
 
     def name(self):
 	#Données: Joueur
 	#Pré-conditions: ---
 	#Resultat: renvoie Nom du joueur
 	#Post-conditions: String
-        return self.nom
+        return self.nom_j
 
 	def grille(self):
 	#Données: Joueur
 	#Pré-conditions: ---
 	#Resultat: renvoie la Grille du joueur
 	#Post-conditions: type Grille
-		return self.grille
+		return self.grille_j
 
-    def getFlotte(self):
+    def flotte(self):
 	#Données: Joueur
 	#Pré-conditions: ---
 	#Resultat: renvoie la Flotte du joueur
 	#Post-conditions: type Flotte
-        return self.flotte
+        return self.flotte_j

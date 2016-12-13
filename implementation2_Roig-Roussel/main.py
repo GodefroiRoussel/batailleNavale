@@ -42,8 +42,8 @@ def main():
             print("Saisir la taille du bateau "+str(j)+" :")
             taille=input()
         #On ajoute le bateau aux flottes des deux joueurs afin de mémoriser leurs tailles.
-        Joueur1.getFlotte().ajouterBateau(taille)
-        Joueur2.getFlotte().ajouterBateau(taille)
+        Joueur1.flotte().ajouterBateau(taille)
+        Joueur2.flotte().ajouterBateau(taille)
 
     #Les bateaux sont initialisés mais pas placés
     #On place les bateaux
