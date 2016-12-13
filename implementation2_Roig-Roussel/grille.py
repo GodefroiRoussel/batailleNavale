@@ -120,40 +120,52 @@ class Grille :
 	#Resultat: Renvoie True si après vérification, il y a suffisament de place pour inserer le bateau à l'horizontale ou à la verticale
 	#après analyse de la direction du bateau si il y a déjà des cases ajoutées pour le numBat donné en paramètre
 	#Post-conditions: bool
-		res = True
+		res = False
 		placeVertical = False
 		placeHorizontal = False
 
 		if(verificationCoordonnees(x,y)):
+
+			# Vérification horizontale
+			cHorizontalPos = 0
+			cHorizontalNeg = 0
+			while(verificationCoordonnees(x+cHorizontalPos,y)):
+				cHorizontalPos += 1
+			# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens positif horizontal)
+			while(verificationCoordonnees(x-cHorizontalNeg,y)):
+				cHorizontalNeg += 1
+			# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens négatif horizontal)
+			placeHorizontal = ((cHorizontalNeg + cHorizontalPos + 1) >= taille)
+
+			# Vérification verticale
+			cVerticalPos = 0
+			cVerticalNeg = 0
+			while(verificationCoordonnees(x+cVerticalPos,y)):
+				cVerticalPos += 1
+			# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens positif vertical)
+			while(verificationCoordonnees(x+cVerticalNeg,y)):
+				cVerticalNeg += 1
+			# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens négatif vertical)
+			placeVertical = ((cVerticalNeg + cVerticalPos +1) >= taille)
+
+
 			# 1ère position à placer
 			if(not estValide(numBat,x,y)):
-
-				# Vérification horizontale
-				cHorizontalPos = 0
-				cHorizontalNeg = 0
-				while(verificationCoordonnees(x+cHorizontalPos,y)):
-					cHorizontalPos += 1
-				# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens positif horizontal)
-				while(verificationCoordonnees(x-cHorizontalNeg,y)):
-					cHorizontalNeg += 1
-				# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens négatif horizontal)
-				placeHorizontal = ((cHorizontalNeg + cHorizontalPos + 1) >= taille)
-
-				# Vérification verticale
-				cVerticalPos = 0
-				cVerticalNeg = 0
-				while(verificationCoordonnees(x+cVerticalPos,y)):
-					cVerticalPos += 1
-				# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens positif vertical)
-				while(verificationCoordonnees(x+cVerticalNeg,y)):
-					cVerticalNeg += 1
-				# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens négatif vertical)
-				placeVertical = ((cVerticalNeg + cVerticalPos +1) >= taille)
+				res = placeVertical or placeHorizontal
 
 			# 2ème ou + position à placer
 			else:
+				# on cherche la case juxtaposée
+				case = 0
+				if(getBateau(x+1,y) == numBat or getBateau(x-1,y) == numBat):
+					# case à droite ou à gauche (x)
+					res = placeHorizontal
 
-		return placeVertical or placeHorizontal
+				if(getBateau(x,y-1) == numBat or getBateau(x,y+1) == numBat):
+					# case en haut ou en bas (y)
+					res = placeVertical
+
+		return res
 
 	def estVide(self):
 	#Données: Grille
