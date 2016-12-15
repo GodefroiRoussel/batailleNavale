@@ -177,7 +177,7 @@ class Grille :
 		while(res and i < self.taille):
 				j=0
 				while(res and j < self.taille):
-					res = not(estBateau(i,j))
+					res = not(self.estBateau(i,j))
 					j+=1
 				i+=1
 		return res
