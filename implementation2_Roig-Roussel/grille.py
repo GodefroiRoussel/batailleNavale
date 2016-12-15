@@ -195,9 +195,9 @@ class Grille :
 			i=0
 			# si une des cases alentours correspond au numéro du bateau, alors il n'est pas coulé
 			if(self.getBateau(xTir+1,yTir) == bateauTouche or self.getBateau(xTir-1,yTir) == bateauTouche or self.getBateau(xTir,yTir+1) == bateauTouche or self.getBateau(xTir,yTir-1) == bateauTouche):
-				res = "Touché !"
+				res = "touché"
 			else:
-				res = "Coulé !"
+				res = "coulé"
 		else:
 			# A l'eau ou en vue ?
 			if(self.envue(xTir,yTir)):
