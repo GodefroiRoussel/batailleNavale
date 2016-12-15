@@ -9,7 +9,7 @@ class Grille :
 	#Initialise une grille, avec comme paramètre la taille de celle-ci.
 	#Renvoie erreur si grille n'a pas été initialisée
 		self.taille = tailleGrille
-		self.positions = [[0 for j in range(0, tailleGrille+1)] for i in range(0, tailleGrille+1)]
+		self.positions = [[-1 for j in range(0, tailleGrille+1)] for i in range(0, tailleGrille+1)]
 
 	def placerPositionBateau(self, numBat, xBat, yBat):
 	#Données: Grille, numéro du bateau à placer, et coordonnées indiquant où on veut le placer
