@@ -103,3 +103,5 @@ def main():
 
         print("");
         print('Tests Terminés');
+
+main();
