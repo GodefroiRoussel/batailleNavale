@@ -98,7 +98,7 @@ def test_Joueur():
 #---------------------------name--------------------
 
 def test_name():
-    if (joueur1.name()!='ilias',20):
+    if (joueur1.name()!='ilias'):
         return False;
     else :
         return True;
