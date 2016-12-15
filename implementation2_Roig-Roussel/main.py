@@ -66,11 +66,11 @@ def main():
             print("Entrez la "+str(t+1)+" position du bateau"+str(i)+" :")
             x=input("x = ")
             y=input("y = ")
-            
-            if (Joueur1.grille().noSpace(Joueur1.flotte().taille(i),i,x,y)==False):
-                print("Pas d'espace libre pour ajouter toutes les coordonnées de ce bateau, resaisie !");
-            elif (Joueur1.grille().verificationCoordonnees(x,y)==False):
+
+            if (Joueur1.grille().verificationCoordonnees(x,y)==False):
                 print("Coordonnées invalides (bateau sur la même position ou coordonnées hors grille");
+            elif (Joueur1.grille().noSpace(Joueur1.flotte().taille(i),i,x,y)==False):
+                print("Pas d'espace libre pour ajouter toutes les coordonnées de ce bateau, resaisie !");
 
         #Les premières coordonnées sont valides, on les insère
         Joueur1.grille().placerPositionBateau(i,x,y)
