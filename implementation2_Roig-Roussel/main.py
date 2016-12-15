@@ -100,7 +100,7 @@ def main():
 
      #Le joueur 1 place ses différents
 
-    for i in range(0,nbat):
+    for i in range(0,nbBat):
         t=0
         #On initialise x et y à des coordonnées invalides afin que les tests renvoient faux si l'utilisateur ne rentre pas de coordonées
         x=-1
@@ -121,7 +121,7 @@ def main():
                 print("Coordonnées invalides (bateau sur la même position ou coordonnées hors grille")
 
         #Les premières coordonnées sont valides, on les insert
-        Joueur1.grille().placerPositionBateau(i,x,y)
+        Joueur2.grille().placerPositionBateau(i,x,y)
 
         #Après avoir placé les premières coordonnées, on ajoute les suivantes si tailleBat>1
         for t in range(1,Joueur2.flotte().taille(i)):
@@ -149,7 +149,7 @@ def main():
     tourDeJeu=1
 
     #Notre fonction estVide permet de verifier avant chaque nouveau tour si la grille d'un des joueurs est vide
-    while ((Joueur1.grille().estVide()==False) or (Joueur2.grille().estVide()==False)):
+    while ((Joueur1.grille().estVide()==False) and (Joueur2.grille().estVide()==False)):
         if (tourDeJeu==1):
             print(Joueur1.name()+ " à toi de tirer !")
             #Joueur 1 tire
@@ -178,7 +178,7 @@ def main():
             result=Joueur1.grille().tirer(Joueur1.flotte(),a,b)
             print(result)
 
-            tourDeJeu=2 #Changement de tour
+            tourDeJeu=1 #Changement de tour
 
 
     print("==================== Fin du jeu ========================")

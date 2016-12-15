@@ -174,12 +174,13 @@ class Grille :
 		res = True
 		i = 0
 		j = 0
-		while(res and i < self.taille):
+		while(res and i <= self.taille):
 				j=0
-				while(res and j < self.taille):
+				while(res and j <= self.taille):
 					res = not(self.estBateau(i,j))
 					j+=1
 				i+=1
+		print (res)
 		return res
 
 	def tirer(self,flotte, xTir, yTir):
@@ -192,7 +193,7 @@ class Grille :
 			# Touché ou coulé ?
 			bateauTouche = self.getBateau(xTir,yTir)
 			self.supprimerPosition(xTir,yTir)
-			flotte.touce(bateauTouche)
+			flotte.touche(bateauTouche)
 			i=0
 			# si une des cases alentours correspond au numéro du bateau, alors il n'est pas coulé
 			if(self.getBateau(xTir+1,yTir) == bateauTouche or self.getBateau(xTir-1,yTir) == bateauTouche or self.getBateau(xTir,yTir+1) == bateauTouche or self.getBateau(xTir,yTir-1) == bateauTouche):
