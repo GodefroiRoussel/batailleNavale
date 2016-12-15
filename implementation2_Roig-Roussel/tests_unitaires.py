@@ -114,7 +114,7 @@ def test_name():
 #---------------------------GRILLE------------------------------
 #Grille
 
-GrilleTest = Grille(20)
+GrilleTest = Grille(4)
 GrilleTest.placerPositionBateau(0,0,1)
 GrilleTest.placerPositionBateau(1,2,0)
 GrilleTest.placerPositionBateau(1,2,1)
