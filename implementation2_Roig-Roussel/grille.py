@@ -19,7 +19,7 @@ class Grille :
 		try:
 			self.positions[xBat][yBat] = numBat
 		except IndexError:
-			print("Erreur placement bateau : cordonnées hors grille.")
+			print("Erreur placement bateau : coordonnées hors grille.")
 
 	def getBateau(self, xBat, yBat):
 	#Données: Grille et coordonnées étudiées
@@ -89,29 +89,44 @@ class Grille :
 		res = False
 		if(self.verificationCoordonnees(x,y)):
 				# getBateau() gère déjà les erreurs d'index
-				if(self.getBateau(x+1,y) == numBat):
-						if(self.getBateau(x+2,y) == numBat):
-								res = True
-						elif(self.getBateau(x+1,y+1) != numBat and self.getBateau(x+1,y-1) != numBat):
-								res = True
 
-				if(self.getBateau(x-1,y) == numBat):
-						if(self.getBateau(x-2,y) == numBat):
-								res = True
-						elif(self.getBateau(x-1,y+1) != numBat and self.getBateau(x-1,y-1) != numBat):
-								res = True
+				#On fait un test pour savoir si il existe déjà une position de ce bateau déjà placé sur la grille
+				dejaPlace = False
+				i = 0
+				j = 0
+				while(not(dejaPlace) and i < self.taille):
+						j=0
+						while(not(dejaPlace) and j < self.taille):
 
-				if(self.getBateau(x,y+1) == numBat):
-						if(self.getBateau(x,y+2) == numBat):
-								res = True
-						elif(self.getBateau(x+1,y+1) != numBat and self.getBateau(x-1,y+1) != numBat):
-								res = True
+							if (self.positions[i][j] == numBat):
+								dejaPlace = True
+							j+=1
+						i+=1
+				#Si ce n'est pas la première position placée
+				if dejaPlace:
+					if(self.getBateau(x+1,y) == numBat):
+							if(self.getBateau(x+2,y) == numBat):
+									res = True
+							elif(self.getBateau(x+1,y+1) != numBat and self.getBateau(x+1,y-1) != numBat):
+									res = True
 
-				if(self.getBateau(x,y-1) == numBat):
-						if(self.getBateau(x,y-2) == numBat):
-								res = True
-						elif(self.getBateau(x+1,y-1) != numBat and self.getBateau(x+1,y-1) != numBat):
-								res = True
+					if(self.getBateau(x-1,y) == numBat):
+							if(self.getBateau(x-2,y) == numBat):
+									res = True
+							elif(self.getBateau(x-1,y+1) != numBat and self.getBateau(x-1,y-1) != numBat):
+									res = True
+
+					if(self.getBateau(x,y+1) == numBat):
+							if(self.getBateau(x,y+2) == numBat):
+									res = True
+							elif(self.getBateau(x+1,y+1) != numBat and self.getBateau(x-1,y+1) != numBat):
+									res = True
+
+					if(self.getBateau(x,y-1) == numBat):
+							if(self.getBateau(x,y-2) == numBat):
+									res = True
+							elif(self.getBateau(x+1,y-1) != numBat and self.getBateau(x+1,y-1) != numBat):
+									res = True
 		return res
 
 	def noSpace(self,taille,numBat,x,y):
@@ -148,7 +163,6 @@ class Grille :
 			# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens négatif vertical)
 			placeVertical = ((cVerticalNeg + cVerticalPos + 1) >= self.taille)
 
-
 			# 1ère position à placer
 			if(not self.estValide(numBat,x,y)):
 				res = placeVertical or placeHorizontal
@@ -174,9 +188,9 @@ class Grille :
 		res = True
 		i = 0
 		j = 0
-		while(res and i <= self.taille):
+		while(res and i < self.taille):
 				j=0
-				while(res and j <= self.taille):
+				while(res and j < self.taille):
 					res = not(self.estBateau(i,j))
 					j+=1
 				i+=1
