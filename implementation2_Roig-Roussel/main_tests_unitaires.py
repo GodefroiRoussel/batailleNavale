@@ -91,15 +91,14 @@ def main():
         if not (test_non_estVide()):
                 print('Erreur fonction est vide')
 
-        if not (test_estVide()):
-                print('Erreur fonction est vide (C.ROIG : pas vraiment, voir commentaire tests_unitaires.py)')
-
-
         if not (test_tirer()):
                 print('Erreur fonction tirer');
 
         if not (test_coule()):
                 print('Erreur fonction coule');
+
+        if not (test_estVide()):
+                print('Erreur fonction est vide (C.ROIG : pas vraiment, voir commentaire tests_unitaires.py)')
 
         print("");
         print('Tests Terminés');
