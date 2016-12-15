@@ -150,7 +150,7 @@ class Grille :
 			while(self.verificationCoordonnees(x-1-cHorizontalNeg,y) or self.getBateau(x-1-cHorizontalNeg,y) == numBat):
 				cHorizontalNeg += 1
 			# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens négatif horizontal)
-			placeHorizontal = ((cHorizontalNeg + cHorizontalPos + 1) >= self.taille)
+			placeHorizontal = ((cHorizontalNeg + cHorizontalPos + 1) >= taille)
 
 			# Vérification verticale
 			cVerticalPos = 0
@@ -161,8 +161,14 @@ class Grille :
 			while(self.verificationCoordonnees(x,y-cVerticalNeg-1) or self.getBateau(x,y-cVerticalNeg-1) == numBat):
 				cVerticalNeg += 1
 			# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens négatif vertical)
-			placeVertical = ((cVerticalNeg + cVerticalPos + 1) >= self.taille)
-
+			placeVertical = ((cVerticalNeg + cVerticalPos + 1) >= taille)
+			nbPh=cHorizontalNeg + cHorizontalPos + 1
+			nbPv=cVerticalNeg + cVerticalPos + 1
+			print ("Place Vertical: "+str(nbPv))
+			print ("Place Vertical: "+str(placeVertical))
+			print ("Place horizontal: "+str(nbPh))
+			print ("Place horizontal: "+str(placeHorizontal))
+			print ("Est valide: "+str(self.estValide(numBat,x,y)))
 			# 1ère position à placer
 			if(not self.estValide(numBat,x,y)):
 				res = placeVertical or placeHorizontal
