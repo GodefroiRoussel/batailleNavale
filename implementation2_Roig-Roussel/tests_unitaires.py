@@ -6,7 +6,7 @@ from flotte import *
 
 #===============================================================
 #--------------------------FLOTTE-------------------------------
-
+FlotteTest = Flotte()
 
 #---------------------------creation_flotte----------------------
 def test_creation_flotte():
@@ -53,7 +53,7 @@ def test_touche():
 
 
 #-----------------------------coule_False----------------
-def test_coule_False():
+def test_coule_false():
     if (FlotteTest.coule(1)!=False):
         return False;
     else :
@@ -61,7 +61,7 @@ def test_coule_False():
 
 
 #--------------------------------coule_True---------------
-def test_coule_True():
+def test_coule_true():
     FlotteTest.touche(2);
     FlotteTest.touche(2);
     FlotteTest.touche(2);
@@ -83,10 +83,11 @@ def test_coule_True():
 #---------------------------JOUEUR------------------------------
 #Joueur
 
+joueur1=Joueur("ilias")
 
 def test_Joueur():
     try:
-        joueur1=Joueur(ilias)
+        joueur1=Joueur("ilias")
         return True;
     except:
         return False;
