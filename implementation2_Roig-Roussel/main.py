@@ -88,10 +88,10 @@ def main():
                 print("y = ")
                 y=input()
 
-                if (Joueur1.grille().noSpace(Joueur1.flotte().taille(i),i,x,y)==False):
-                    print("Pas d'espace libre pour ajouter toutes les coordonnées de ce bateau, resaisie !")
-                elif (Joueur1.grille().estValide(i,x,y)==False):
+                if (Joueur1.grille().estValide(i,x,y)==False):
                     print("Coordonnées invalides (bateau sur la même position ou coordonnées hors grille")
+                elif (Joueur1.grille().noSpace(Joueur1.flotte().taille(i),i,x,y)==False):
+                    print("Pas d'espace libre pour ajouter toutes les coordonnées de ce bateau, resaisie !")
 
             Joueur1.grille().placerPositionBateau(i,x,y)
 
@@ -117,10 +117,10 @@ def main():
             print("y = ")
             y=input()
 
-            if (Joueur2.grille().noSpace(Joueur2.flotte().taille(i),i,x,y)==False):
-                print("Pas d'espace libre pour ajouter toutes les coordonnées de ce bateau, resaisie !")
-            elif (Joueur2.grille().verificationCoordonnees(x,y)==False):
+            if (Joueur2.grille().verificationCoordonnees(x,y)==False):
                 print("Coordonnées invalides (bateau sur la même position ou coordonnées hors grille")
+            elif (Joueur2.grille().noSpace(Joueur2.flotte().taille(i),i,x,y)==False):
+                print("Pas d'espace libre pour ajouter toutes les coordonnées de ce bateau, resaisie !")
 
         #Les premières coordonnées sont valides, on les insert
         #Ici, on ajoutait le Bateau dans le joueur 1 et pas le 2
@@ -138,10 +138,10 @@ def main():
                 print("y = ")
                 y=input()
 
-                if (Joueur2.grille().noSpace(Joueur2.flotte().taille(i),i,x,y)==False):
-                    print("Pas d'espace libre pour ajouter toutes les coordonnées de ce bateau, resaisie !")
-                elif (Joueur2.grille().estValide(i,x,y)==False):
+                if (Joueur2.grille().estValide(i,x,y)==False):
                     print("Coordonnées invalides (bateau sur la même position ou coordonnées hors grille")
+                elif (Joueur2.grille().noSpace(Joueur2.flotte().taille(i),i,x,y)==False):
+                    print("Pas d'espace libre pour ajouter toutes les coordonnées de ce bateau, resaisie !")
 
             Joueur2.grille().placerPositionBateau(i,x,y)
 
