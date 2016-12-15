@@ -68,7 +68,9 @@ def test_coule_true():
     FlotteTest.touche(2);
     FlotteTest.touche(2);
 
-    if (FlotteTest.coule(1)!=True):
+    # Modifié par ROIG / ROUSSEL : if(FlotteTest.coule(1)!=True)
+    # est devenu (on teste le bateau sur lequel on a tiré):
+    if (FlotteTest.coule(2)!=True):
         return False;
     else :
         return True;
@@ -263,14 +265,14 @@ def test_est_Non_Valide():
 #----------------------------Tirer-----------------------
 
 def test_tirer():
-    if (GrilleTest.tirer(0,0)!='touché'):
+    if (GrilleTest.tirer(FlotteTest,0,0)!='touché'):
         return False;
     else :
         return True;
 
 
 def test_coule():
-    if (GrilleTest.tirer(0,1)!='coulé'):
+    if (GrilleTest.tirer(FlotteTest,0,1)!='coulé'):
         return False;
     else :
         return True;
