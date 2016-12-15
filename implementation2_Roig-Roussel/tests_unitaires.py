@@ -141,7 +141,7 @@ def test_placerPositionBateau():
     except:
         return False;
 
-
+#C. ROIG : La grille fait 4*4, placer en (0,2) ne devrait pas poser problème non ?
 def test_placerPositionBateau_trop_eloigne():
     try:
         GrilleTest.placerPositionBateau(0,0,2);
