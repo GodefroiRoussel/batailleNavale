@@ -109,7 +109,8 @@ def main():
         y=-1
         #On place la première coordonnée du bateau i
         #Cette boucle while vérifie que les coordonées sont valides
-        while ((Joueur2.grille().verificationCoordonnees(x,y)==False) and (Joueur2.grille().noSpace(Joueur2.flotte().taille(i),i,x,y)==False)):
+        #Il y avait un and avant, mais on sort de la boucle quand LES DEUX ne sont plus vérifiés donc tu restes dans les boucles quand UN DES DEUX n'est pas vérifié
+        while ((Joueur2.grille().verificationCoordonnees(x,y)==False) or (Joueur2.grille().noSpace(Joueur2.flotte().taille(i),i,x,y)==False)):
             print("Entrez la "+str(t+1)+" position du bateau"+str(i)+" :")
             print("x = ")
             x=input()
@@ -130,7 +131,8 @@ def main():
         for t in range(1,Joueur2.flotte().taille(i)):
             x=-1
             y=-1
-            while ((Joueur2.grille().estValide(i,x,y)==False) and (Joueur2.grille().noSpace(Joueur2.flotte().taille(i),i,x,y)==False)):
+            #Il y avait un and avant, mais on sort de la boucle quand LES DEUX ne sont plus vérifiés donc tu restes dans les boucles quand UN DES DEUX n'est pas vérifié
+            while ((Joueur2.grille().estValide(i,x,y)==False) or (Joueur2.grille().noSpace(Joueur2.flotte().taille(i),i,x,y)==False)):
                 print("Entrez la "+str(t+1)+" position du bateau"+str(i)+" :")
                 print("x = ")
                 x=input()
