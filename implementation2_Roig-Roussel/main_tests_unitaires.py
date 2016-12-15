@@ -48,7 +48,7 @@ def main():
 
 
         if not (test_placerPositionBateau_trop_eloigne()):
-                print('Erreur fonction placer position : cas du bateau trop eloigne (ROIG : pas vraiment, voir commentaire tests_unitaires.py)')
+                print('Erreur fonction placer position : cas du bateau trop eloigne (c.ROIG : pas vraiment, voir commentaire tests_unitaires.py)')
 
 
         if not (test_getBateau()):
@@ -74,7 +74,7 @@ def main():
                 print('Erreur fonction est bateau')
 
         if not (test_est_Pas_Bateau()):
-                print('Erreur fonction est bateau')
+                print('Erreur fonction est (pas) bateau (C.ROIG : pas vraiment, voir commentaire fichier tests_unitaires.py)')
 
         if not (test_verificationCoordonnees()):
                 print('Erreur fonction verification coordonnees')

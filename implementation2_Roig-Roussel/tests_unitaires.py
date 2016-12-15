@@ -221,6 +221,7 @@ def test_estBateau():
     else :
         return True;
 
+# C. ROIG : ligne 147 => erreur déjà relevée, il y a bien un bateau à cet endroit là
 def test_est_Pas_Bateau():
     if (GrilleTest.estBateau(0,2)!=False):
         return False;
