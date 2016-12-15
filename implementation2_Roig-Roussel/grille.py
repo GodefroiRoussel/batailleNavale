@@ -59,7 +59,7 @@ class Grille :
 	#Resultat: Renvoie True si la position indiquée par (x,y) se trouve dans la grille, renvoie False sinon
 	#Post-conditions: bool
 		res = False
-		if(x <= self.taille and y <= self.taille and x >= 0 and y >= 0):
+		if(x < self.taille and y < self.taille and x >= 0 and y >= 0):
 				res = True
 		return res
 
