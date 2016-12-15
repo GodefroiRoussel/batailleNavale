@@ -62,7 +62,8 @@ def main():
         y=-1
         #On place la première coordonnée du bateau i
         #Cette boucle while vérifie que les coordonées sont valides
-        while ((Joueur1.grille().verificationCoordonnees(x,y)==False) and (Joueur1.grille().noSpace(Joueur1.flotte().taille(i),i,x,y)==False)):
+        #Il y avait un and avant, mais on sort de la boucle quand LES DEUX ne sont plus vérifiés donc tu restes dans les boucles quand UN DES DEUX n'est pas vérifié
+        while ((Joueur1.grille().verificationCoordonnees(x,y)==False) or (Joueur1.grille().noSpace(Joueur1.flotte().taille(i),i,x,y)==False)):
             print("Entrez la "+str(t+1)+" position du bateau"+str(i)+" :")
             x=input("x = ")
             y=input("y = ")
@@ -79,7 +80,8 @@ def main():
         for t in range(1,Joueur1.flotte().taille(i)):
             x=-1
             y=-1
-            while ((Joueur1.grille().estValide(i,x,y)==False) and (Joueur1.grille().noSpace(Joueur1.flotte().taille(i),i,x,y)==False)):
+            #Il y avait un and avant, mais on sort de la boucle quand LES DEUX ne sont plus vérifiés donc tu restes dans les boucles quand UN DES DEUX n'est pas vérifié
+            while ((Joueur1.grille().estValide(i,x,y)==False) or (Joueur1.grille().noSpace(Joueur1.flotte().taille(i),i,x,y)==False)):
                 print("Entrez la "+str(t+1)+" position du bateau"+str(i)+" :")
                 print("x = ")
                 x=input()
@@ -121,6 +123,7 @@ def main():
                 print("Coordonnées invalides (bateau sur la même position ou coordonnées hors grille")
 
         #Les premières coordonnées sont valides, on les insert
+        #Ici, on ajoutait le Bateau dans le joueur 1 et pas le 2
         Joueur2.grille().placerPositionBateau(i,x,y)
 
         #Après avoir placé les premières coordonnées, on ajoute les suivantes si tailleBat>1
@@ -149,6 +152,7 @@ def main():
     tourDeJeu=1
 
     #Notre fonction estVide permet de verifier avant chaque nouveau tour si la grille d'un des joueurs est vide
+    #Changement de or en and car on veut s'arrêter quand un joueur a une grille vide, pas les deux
     while ((Joueur1.grille().estVide()==False) and (Joueur2.grille().estVide()==False)):
         if (tourDeJeu==1):
             print(Joueur1.name()+ " à toi de tirer !")
