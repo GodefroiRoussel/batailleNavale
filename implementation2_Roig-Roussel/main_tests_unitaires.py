@@ -3,7 +3,7 @@
 from tests_unitaires import *
 
 def main():
-    
+
         GrilleTest=Grille(4)
         GrilleTest.placerPositionBateau(0,0,1)
         GrilleTest.placerPositionBateau(1,2,0)
@@ -76,10 +76,10 @@ def main():
         if not (test_est_Pas_Bateau()):
                 print('Erreur fonction est bateau')
 
-        if not (test_verificationCoordonnee()):
+        if not (test_verificationCoordonnees()):
                 print('Erreur fonction verification coordonnees')
 
-        if not (test_non_verificationCoordonnee()):
+        if not (test_non_verificationCoordonnees()):
                 print('Erreur fonction verification coordonnees')
 
         if not (test_estValide()):
