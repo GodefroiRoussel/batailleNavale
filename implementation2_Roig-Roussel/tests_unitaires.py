@@ -83,11 +83,11 @@ def test_coule_true():
 #---------------------------JOUEUR------------------------------
 #Joueur
 
-joueur1=Joueur("ilias")
+joueur1=Joueur("ilias",20)
 
 def test_Joueur():
     try:
-        joueur1=Joueur("ilias")
+        joueur1=Joueur("ilias",20)
         return True;
     except:
         return False;
@@ -96,7 +96,7 @@ def test_Joueur():
 #---------------------------name--------------------
 
 def test_name():
-    if (joueur1.name()!='ilias'):
+    if (joueur1.name()!='ilias',20):
         return False;
     else :
         return True;
@@ -229,14 +229,14 @@ def test_est_Pas_Bateau():
 
 #-------------------------verificationCoordonées-------------------
 
-def test_verificationCoordonnee():
-    if (GrilleTest.verificationCoordonnee(2,1)!=False):
+def test_verificationCoordonnees():
+    if (GrilleTest.verificationCoordonnees(2,1)!=False):
         return False;
     else :
         return True;
 
-def test_non_verificationCoordonnee():
-    if (GrilleTest.verificationCoordonnee(1,1)!=True):
+def test_non_verificationCoordonnees():
+    if (GrilleTest.verificationCoordonnees(1,1)!=True):
         return False;
     else :
         return True;
