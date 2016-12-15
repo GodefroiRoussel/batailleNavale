@@ -180,7 +180,6 @@ class Grille :
 					res = not(self.estBateau(i,j))
 					j+=1
 				i+=1
-		print (res)
 		return res
 
 	def tirer(self,flotte, xTir, yTir):
