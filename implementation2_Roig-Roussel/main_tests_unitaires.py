@@ -95,7 +95,7 @@ def main():
                 print('Erreur fonction tirer');
 
         if not (test_coule()):
-                print('Erreur fonction coule');
+                print('Erreur fonction coule (G.ROUSSEL : pas vraiment, voir commentaire tests_unitaires.py)');
 
         if not (test_estVide()):
                 print('Erreur fonction est vide (C.ROIG : pas vraiment, voir commentaire tests_unitaires.py)')
