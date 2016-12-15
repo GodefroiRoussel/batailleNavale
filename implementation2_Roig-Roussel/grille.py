@@ -37,7 +37,7 @@ class Grille :
 	#Pré-conditions: xBat:int, yBat:int , on suppose vérfifiée le fait que la postion contient un bateau et avec estDansGrille(xBat) et estDansGrille(yBat)
 	#Resultat: Supprime la position indiquée par les coordonnées (xBat,yBat) et renvoie la grille modifiée
 	#Post-conditions:
-		self.positions[xBat][yBat] = 0
+		self.positions[xBat][yBat] = -1
 
 	def envue(self, xTir, yTir):
 	#Données: Grille et coordonnées(xTir,yTir)
@@ -46,10 +46,10 @@ class Grille :
 	#Post-conditions: bool
 		res = False
 		for i in range (0,self.taille):
-				if(self.positions[xTir][i] != 0):
+				if(self.positions[xTir][i] != -1):
 						res = True
 		for i in range (0, self.taille):
-				if(self.positions[i][yTir] != 0):
+				if(self.positions[i][yTir] != -1):
 						res = True
 		return res
 
@@ -70,7 +70,7 @@ class Grille :
 	#Post-conditions: bool
 		res = False
 		if(self.estDansGrille(x,y)):
-				if(self.positions[x][y] != 0):
+				if(self.positions[x][y] != -1):
 						res = True
 		return res
 
