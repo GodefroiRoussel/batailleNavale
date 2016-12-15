@@ -13,9 +13,12 @@ class Joueur:
 	#Initialise un joueur avec son nom passé en paramètre
 	#Initialise sa grille et sa flotte
 	#Renvoie erreur si le joueur n'a pas été créé
-		self.nom_j = nomJoueur
-		self.grille_j = Grille(tailleGrille)
-		self.flotte_j = Flotte()
+        try:
+            self.nom_j = nomJoueur
+            self.grille_j = Grille(tailleGrille)
+            self.flotte_j = Flotte()
+        except:
+			print("Erreur création Joueur.")
 
     def name(self):
 	#Données: Joueur

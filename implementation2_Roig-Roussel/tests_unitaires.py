@@ -271,10 +271,7 @@ def test_tirer():
     else :
         return True;
 
-# G. ROUSSEL: Plus haut la fonction test_placerPositionBateau_trop_eloigne(): et test_placerPositionBateau(): positionnent 2 nouvelles positions du bateau 0 et une seule est touché donc il ne peut pas être coulé ici
 def test_coule():
-    # G. ROUSSEL: On décommente le tir juste au dessous pour permettre à cette fonction d'être juste et ainsi rendre juste test_estVide
-    # GrilleTest.tirer(FlotteTest,0,2)
     if (GrilleTest.tirer(FlotteTest,0,1)!='coulé'):
         return False;
     else :

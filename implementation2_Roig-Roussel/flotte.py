@@ -9,7 +9,10 @@ class Flotte:
 		#renvoie une nouvelle flotte vide
         #renvoie erreur si la flotte n'a pas été correctement créée
         #Explications : La flotte est un type qui enumère toutes les tailles de bateaux mais ne permet pas de les localiser
-		self.tailles = []
+		try:
+			self.tailles = []
+		except:
+			print("Erreur création flotte.")
 
 	def ajouterBateau(self, tailleBat):
 		#Données: Flotte et taille du bateau

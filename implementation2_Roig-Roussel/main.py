@@ -192,7 +192,7 @@ def main():
     if(Joueur1.grille().estVide()):
         print(Joueur2.name()+" a gagné")
     else:
-        print(Joueur1.name()+ "a gagné")
+        print(Joueur1.name()+ " a gagné")
 
     #Fin de Partie
 

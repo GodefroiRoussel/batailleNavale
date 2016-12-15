@@ -8,8 +8,11 @@ class Grille :
 	def __init__(self, tailleGrille):
 	#Initialise une grille, avec comme paramètre la taille de celle-ci.
 	#Renvoie erreur si grille n'a pas été initialisée
-		self.taille = tailleGrille
-		self.positions = [[-1 for j in range(0, tailleGrille)] for i in range(0, tailleGrille)]
+		try:
+			self.taille = tailleGrille
+			self.positions = [[-1 for j in range(0, tailleGrille)] for i in range(0, tailleGrille)]
+		except:
+			print("Erreur dans la création de la grille.")
 
 	def placerPositionBateau(self, numBat, xBat, yBat):
 	#Données: Grille, numéro du bateau à placer, et coordonnées indiquant où on veut le placer
@@ -101,9 +104,13 @@ class Grille :
 							if (self.positions[i][j] == numBat):
 								dejaPlace = True
 							j+=1
+						#Sortie: On sort si le bateau a été trouvé ou si on est sorti du tableau
 						i+=1
+				#Sortie: On sort si le bateau a été trouvé ou si on est sorti du tableau
+
 				#Si ce n'est pas la première position placée
 				if dejaPlace:
+					#Si une case à côté de (x,y) contient le numéro du bateau que l'on veut placer, alors on vérifie que le bateau est bien horizontal ou vertical et ne forme pas un angle droit
 					if(self.getBateau(x+1,y) == numBat):
 							if(self.getBateau(x+2,y) == numBat):
 									res = True
@@ -161,14 +168,7 @@ class Grille :
 			while(self.verificationCoordonnees(x,y-cVerticalNeg-1) or self.getBateau(x,y-cVerticalNeg-1) == numBat):
 				cVerticalNeg += 1
 			# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens négatif vertical)
-			placeVertical = ((cVerticalNeg + cVerticalPos + 1) >= taille)
-			nbPh=cHorizontalNeg + cHorizontalPos + 1
-			nbPv=cVerticalNeg + cVerticalPos + 1
-			print ("Place Vertical: "+str(nbPv))
-			print ("Place Vertical: "+str(placeVertical))
-			print ("Place horizontal: "+str(nbPh))
-			print ("Place horizontal: "+str(placeHorizontal))
-			print ("Est valide: "+str(self.estValide(numBat,x,y)))
+
 			# 1ère position à placer
 			if(not self.estValide(numBat,x,y)):
 				res = placeVertical or placeHorizontal
@@ -211,14 +211,16 @@ class Grille :
 		if self.estBateau(xTir,yTir):
 			# Touché ou coulé ?
 			bateauTouche = self.getBateau(xTir,yTir)
+			# On supprime la position pour la mettre à -1
 			self.supprimerPosition(xTir,yTir)
+			# On décrémente la taille du bateau dans la flotte
 			flotte.touche(bateauTouche)
-			i=0
-			# si une des cases alentours correspond au numéro du bateau, alors il n'est pas coulé
-			if(self.getBateau(xTir+1,yTir) == bateauTouche or self.getBateau(xTir-1,yTir) == bateauTouche or self.getBateau(xTir,yTir+1) == bateauTouche or self.getBateau(xTir,yTir-1) == bateauTouche):
-				res = "touché"
-			else:
+
+			#Vérifie que le bateau est coulé (taille à 0 dans la flotte) sinon renvoie touché
+			if (flotte.coule(bateauTouche)):
 				res = "coulé"
+			else:
+				res = "touché"
 		else:
 			# A l'eau ou en vue ?
 			if(self.envue(xTir,yTir)):
