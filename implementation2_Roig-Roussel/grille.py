@@ -29,7 +29,7 @@ class Grille :
 		try:
 			numBat = self.positions[xBat][yBat]
 		except IndexError:
-			numBat = 0
+			numBat = -1
 		return numBat
 
 	def supprimerPosition(self, xBat, yBat):
@@ -192,6 +192,7 @@ class Grille :
 			# Touché ou coulé ?
 			bateauTouche = self.getBateau(xTir,yTir)
 			self.supprimerPosition(xTir,yTir)
+			flotte.touce(bateauTouche)
 			i=0
 			# si une des cases alentours correspond au numéro du bateau, alors il n'est pas coulé
 			if(self.getBateau(xTir+1,yTir) == bateauTouche or self.getBateau(xTir-1,yTir) == bateauTouche or self.getBateau(xTir,yTir+1) == bateauTouche or self.getBateau(xTir,yTir-1) == bateauTouche):
