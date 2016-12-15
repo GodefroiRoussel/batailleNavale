@@ -188,19 +188,19 @@ class Grille :
 	#Resultat: Renvoie le résultat du tir (à l'eau, en vue, touché ou coulé) et modifie la flotte et la grille en cas de tir reussi
 	#Post-conditions: resultatTir:string
 		res = ""
-		if estBateau(xTir,yTir):
+		if self.estBateau(xTir,yTir):
 			# Touché ou coulé ?
-			bateauTouche = getBateau(xTir,yTir)
-			supprimerPosition(xTir,yTir)
+			bateauTouche = self.getBateau(xTir,yTir)
+			self.supprimerPosition(xTir,yTir)
 			i=0
 			# si une des cases alentours correspond au numéro du bateau, alors il n'est pas coulé
-			if(getBateau(xTir+1,yTir) == bateauTouche or getBateau(xTir-1,yTir) == bateauTouche or getBateau(xTir,yTir+1) == bateauTouche or getBateau(xTir,yTir-1) == bateauTouche):
+			if(self.getBateau(xTir+1,yTir) == bateauTouche or self.getBateau(xTir-1,yTir) == bateauTouche or self.getBateau(xTir,yTir+1) == bateauTouche or self.getBateau(xTir,yTir-1) == bateauTouche):
 				res = "Touché !"
 			else:
 				res = "Coulé !"
 		else:
 			# A l'eau ou en vue ?
-			if(envue(xTir,yTir)):
+			if(self.envue(xTir,yTir)):
 				res = "En vue"
 			else:
 				res = "A l'eau"
