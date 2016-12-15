@@ -48,7 +48,7 @@ def main():
 
 
         if not (test_placerPositionBateau_trop_eloigne()):
-                print('Erreur fonction placer position : cas du bateau trop eloigne (c.ROIG : pas vraiment, voir commentaire tests_unitaires.py)')
+                print('Erreur fonction placer position : cas du bateau trop eloigne (C.ROIG : pas vraiment, voir commentaire tests_unitaires.py)')
 
 
         if not (test_getBateau()):
@@ -92,7 +92,7 @@ def main():
                 print('Erreur fonction est vide')
 
         if not (test_estVide()):
-                print('Erreur fonction est vide')
+                print('Erreur fonction est vide (C.ROIG : pas vraiment, voir commentaire tests_unitaires.py)')
 
 
         if not (test_tirer()):

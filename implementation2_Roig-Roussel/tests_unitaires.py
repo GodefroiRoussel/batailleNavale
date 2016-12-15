@@ -287,7 +287,7 @@ def test_non_estVide():
     else :
         return True;
 
-
+#C. ROIG : voir commentaire ligne 147, il manque la case (0,2) à supprimer
 def test_estVide():
     GrilleTest.supprimerPosition(0,0);
     GrilleTest.supprimerPosition(0,1);
