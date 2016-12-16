@@ -168,6 +168,7 @@ class Grille :
 			while(self.verificationCoordonnees(x,y-cVerticalNeg-1) or self.getBateau(x,y-cVerticalNeg-1) == numBat):
 				cVerticalNeg += 1
 			# Sortie : on rencontre une case soit prise par un bateau soit hors grille (sens négatif vertical)
+			placeVertical = ((cVerticalNeg + cVerticalPos + 1) >= taille)
 
 			# 1ère position à placer
 			if(not self.estValide(numBat,x,y)):
